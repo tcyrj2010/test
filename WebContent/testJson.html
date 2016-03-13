@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-1.12.1.js"></script>
+<script type="text/javascript">
+	function validatePerson(){
+		$.ajax({
+	          type: "post",//使用post方法访问后台
+	          dataType : 'jsonp',  
+	          jsonpCallback:'callback',  
+			  url: "http://localhost:8888/airport_server/demo/json/testjson",
+			  success: function(data) {
+				  alert(data.person.person_name);
+			  },
+			  error:function(e){
+				  alert("shibai");
+			  }
+		});
+	}
+
+</script>
+
+</head>
+<body>
+	用户名：<input type="text" name="username" value="" id="userId"><br/>
+	密码：<input type="text" name="password" value=""><br/>
+	<input type="button" value="验证" onclick="validatePerson();">
+</body>
+</html>
